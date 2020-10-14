@@ -10,7 +10,7 @@ Use this gif as an example of how the app should work.
 
 ## Setup
 
-- Fork and clone this repository
+- clone this repository
 - Run `json-server --watch db.json --routes routes.json` to get the backend started
 - Open the `index.html` file on your browser
 
@@ -28,9 +28,11 @@ The endpoints you will need are:
 ## Core Deliverables
 
 As a user, I can:
-
+RENDER
 - See the image received from the server, including its title, likes and comments when the page loads
+
 - Click on the heart icon to increase image likes, and still see them when I reload the page
+
 - Add a comment (no persistance needed)
 
 ## Advanced Deliverables
@@ -42,9 +44,11 @@ These deliverables are not required to pass the code challenge, but if you have 
 As a user, I can:
 
 - Downvote an image
+
 - Still see the comments written after reloading the page
   > For this one, you want to make a POST request to the `/comments` endpoint.
   > Your comment object must have an `imageId` key with a value of `1` for it to work.
+  
 - Delete a comment
   > To persist this, you will have to make a DELETE request to the `/comments/:id` endpoint.
 
