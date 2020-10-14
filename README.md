@@ -7,7 +7,6 @@ Today you'll be building an app for viewing, liking, and commenting on a single 
 Use this gif as an example of how the app should work.
 
 ![demo gif](assets/demo.gif)
-
 ## Setup
 
 - Fork and clone this repository
