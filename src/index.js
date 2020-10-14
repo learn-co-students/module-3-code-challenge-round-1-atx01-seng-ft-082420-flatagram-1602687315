@@ -1,4 +1,4 @@
-//Get Image
+//Get image
 fetch('http://localhost:3000/images/1')
 .then(function(res){
     return res.json()
@@ -7,6 +7,7 @@ fetch('http://localhost:3000/images/1')
     renderImage(image)
 })
 
+//add image to page
 function renderImage(photo) {
     const imgTitle = document.querySelector('.title')
     imgTitle.innerHTML = photo.title
@@ -21,7 +22,14 @@ function renderImage(photo) {
     const comments = photo.comments
     for(let i = 0; i < comments.length; i++) {
         const comment = document.createElement('li')
+        const deletebtn = document.createElement('button')
+        deletebtn.innerHTML = "X"
+        deletebtn.addEventListener('click', function(e) {
+                e.preventDefault()
+                deleteComment(photo.comments[i], comment)
+            })
         comment.innerHTML = photo.comments[i].content
+        comment.append(deletebtn)
         ul.append(comment)
     }
 
@@ -64,12 +72,13 @@ function addLike(numLikes) {
         renderLikes(photo)
     })
 }
-
+//render photo likes to page
 function renderLikes(photo) {
     const likes = document.querySelector('.likes')
     likes.innerHTML = `${photo.likes} likes`
 }
 
+//add comment to database and then render comment
 function addComment(form, ul) {
     const comment = form.comment.value
     fetch('http://localhost:3000/comments', {
@@ -86,9 +95,19 @@ function addComment(form, ul) {
     .then(function(res){
         return res.json()
     })
-    .then(function(photo){
+    .then(function(comm){
         const li = document.createElement('li')
-        li.innerHTML = photo.content
+        li.innerHTML = comm.content
         ul.append(li)
+    })
+}
+
+//first delete from database and then remove comment li
+function deleteComment(comment, commentLi) {
+    fetch(`http://localhost:3000/comments/${comment.id}`, {
+    method: 'DELETE'  
+    })
+    .then(function() {
+        commentLi.remove()
     })
 }
