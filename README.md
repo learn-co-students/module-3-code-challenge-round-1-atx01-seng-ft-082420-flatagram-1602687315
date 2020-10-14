@@ -9,10 +9,10 @@ Use this gif as an example of how the app should work.
 ![demo gif](assets/demo.gif)
 
 ## Setup
-
+<!-- 
 - Fork and clone this repository
 - Run `json-server --watch db.json --routes routes.json` to get the backend started
-- Open the `index.html` file on your browser
+- Open the `index.html` file on your browser -->
 
 ## Endpoints
 
